@@ -8,13 +8,13 @@ export const register = async (req, res) => {
 
   try {
     if (!name || !email || !password || !dob || !gender) {
-      return res.status(400).json({ message: "Missing Details !" });
+      return res.status(400).json({success:false, message: "Missing Details !" });
     }
 
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(409).json({ message: "User already Exists" });
+      return res.status(409).json({success:false, message: "User already Exists" });
     }
 
     const hashpasswod = await bcrypt.hash(password, 10);
@@ -34,6 +34,7 @@ export const register = async (req, res) => {
     // console.log({ name, email, password, dob, gender });
 
     return res.status(201).json({
+      sucess:true,
       message: "User Registraction ",
       name,
       email,

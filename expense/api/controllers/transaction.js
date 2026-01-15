@@ -71,10 +71,20 @@ export const getAllTransaction=async(req,res)=>{
 
 export const updateTransaction=async(req,res)=>{
     const {Tid}= req.params;
+
+
     
     try {
-        
+
+      
+
+      const transaction = await Transaction.findById(Tid);
+
+      console.log(transaction)
+        console.log(Tid)
+
+        return res.status(200).json("Updated");
     } catch (error) {
-        
+        return res.status(400).json(error)
     }
 }
