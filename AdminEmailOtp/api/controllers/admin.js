@@ -88,7 +88,7 @@ export const login = async (req, res) => {
       message: "OTP has been sent successfully to your email",
     });
   } catch (error) {
-    return res.status(400).json({ success: false, message: error });
+    return res.status(400).json({ success: false, message: error.message || "Server error" });
   }
 };
 
@@ -112,7 +112,7 @@ export const verifyOtp = async (req, res) => {
       return res.status(400).json({ message: "Invalid or expired Otp" });
     }
 
-    adminData.otp = null;
+    adminData.otpNumber = null;
     adminData.otpExpireAt = null;
     await adminData.save();
 
