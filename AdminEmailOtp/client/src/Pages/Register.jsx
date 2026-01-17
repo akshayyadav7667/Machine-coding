@@ -14,7 +14,8 @@ export default function Register() {
 //   const [dob,setDob]=useState("")
    const [error, setError] = useState("");
 
-   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+   // const backendUrl = import.meta.env.VITE_BACKEND_URL;
+   const backendUrl = "https://admin-otp-backend.onrender.com"
 
   // console.log(email,password)
 
