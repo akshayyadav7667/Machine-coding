@@ -9,7 +9,7 @@ export default function VerifyOtp() {
   const navigate = useNavigate();
   const location = useLocation();
 
-     const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
@@ -32,12 +32,12 @@ export default function VerifyOtp() {
         withCredentials: true,
       });
 
-    //   console.log("ADMIN:", res.data.email);
-    //   console.log("TOKEN:", res.data.token);
+      //   console.log("ADMIN:", res.data.email);
+      //   console.log("TOKEN:", res.data.token);
 
       localStorage.setItem("adminToken", res.data.token);
 
-    //   console.log(res.data);
+      //   console.log(res.data);
       if (res.data.message) {
         navigate("/");
       } else {
@@ -77,9 +77,6 @@ export default function VerifyOtp() {
         >
           Verify OTP
         </button>
-
-
-        
       </form>
     </div>
   );
