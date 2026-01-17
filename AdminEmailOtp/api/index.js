@@ -8,23 +8,19 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: "https://frontend-admin-otp.onrender.com",
-//     credentials: true,
-//   })
-// );
-
+const allowedOrigins = [
+  "http://localhost:5174"
+];
 
 app.use(
   cors({
-    origin: "https://frontend-admin-otp.onrender.com",
+    origin: allowedOrigins,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
+
+// app.use(cors({}));
 
 const PORT = process.env.PORT || 5000;
 
