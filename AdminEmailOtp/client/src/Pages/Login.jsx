@@ -9,7 +9,9 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  // const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  // const backendUrl=" const backendUrl = "https://admin-otp-backend.onrender.com"
+   const backendUrl = "https://admin-otp-backend.onrender.com"
 
   // console.log(email,password)
 
