@@ -17,10 +17,12 @@ const adminSchema= new mongoose.Schema({
         default:"admin"
     },
     otpNumber:{
-        type:String
+        type:String,
+        default:null,
     },
     otpExpireAt:{
-        type:Date
+        type:Date,
+        default:null
     }
 },{timestamps:true})
 
