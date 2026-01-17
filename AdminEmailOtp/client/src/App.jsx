@@ -15,12 +15,12 @@ function App() {
       <Navbar />
 
       <Routes>
-        {/* Login first */}
+        
         <Route path="/login" element={<Login />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Home AFTER login */}
+        
         <Route
           path="/"
           element={
@@ -48,7 +48,7 @@ function App() {
           }
         />
 
-        {/* Fallback */}
+        
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>

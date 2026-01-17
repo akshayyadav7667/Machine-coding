@@ -9,7 +9,7 @@ export default function VerifyOtp() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();

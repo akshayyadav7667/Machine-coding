@@ -9,7 +9,8 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
   // console.log(email,password)
 
@@ -41,7 +42,7 @@ export default function Login() {
         withCredentials: true,
       });
 
-      //   console.log(response);
+        console.log(response);
       setError("");
       navigate("/verify-otp", { state: email });
     } catch (error) {

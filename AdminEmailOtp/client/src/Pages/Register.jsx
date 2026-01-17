@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 export default function Register() {
+  const navigate = useNavigate();
 
-
-  const navigate= useNavigate()
-
-//   const [name, setName] = useState("");
+  //   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const [gender,setGender]=useState("")
-//   const [dob,setDob]=useState("")
-   const [error, setError] = useState("");
+  //   const [gender,setGender]=useState("")
+  //   const [dob,setDob]=useState("")
+  const [error, setError] = useState("");
 
-   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   // console.log(email,password)
 
@@ -23,10 +21,9 @@ export default function Register() {
 
     setError("");
 
-    console.log(email,password)
+    console.log(email, password);
 
-
-    if ( !email || !password) {
+    if (!email || !password) {
       setError("All fields are required");
       return;
     }
@@ -41,27 +38,24 @@ export default function Register() {
       return;
     }
 
-    const data={
+    const data = {
       email,
       password,
-     
-    }
+    };
 
     // console.log(name,email,password,gender,dob)
 
     // console.log(data)
 
     try {
-      const res = await axios.post(`${backendUrl}/api/admin/register`,data,
-        {
-          headers:{
-            'Content-Type':"application/json"
-          },
-          withCredentials:true,
-        }
-      )
+      const res = await axios.post(`${backendUrl}/api/admin/register`, data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
 
-      console.log(res)
+      console.log(res);
       // console.log(response);
       // if(data.success=='false')
       // {
@@ -69,26 +63,19 @@ export default function Register() {
       // }
 
       console.log(res.data);
-      
 
-     
-      setEmail("")
-      
-     
-      setPassword("")
+      setEmail("");
 
-      navigate('/login')
+      setPassword("");
 
+      navigate("/login");
     } catch (error) {
       if (error.response) {
-      setError(error.response.data.message);
-    } else {
-      
-      setError("Server not responding");
+        setError(error.response.data.message);
+      } else {
+        setError("Server not responding");
+      }
     }
-
-    }
-
   };
 
   return (
@@ -129,9 +116,6 @@ export default function Register() {
             className="border rounded py-1  border-gray-300 px-2"
           />
         </div>
-
-        
-
 
         <button
           type="submit"
