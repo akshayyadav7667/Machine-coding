@@ -40,16 +40,19 @@ export default function BookDetails({ books = [] }) {
     }));
   };
 
-  const handlePrev=()=>{
-   // console.log(id)
+  const handlePrev = () => {
+    // console.log(id)
 
-    if(pagination.currentPage>1)
-    {
-        handlePage(pagination.currentPage-1)
+    if (pagination.currentPage > 1) {
+      handlePage(pagination.currentPage - 1);
     }
-  }
+  };
 
-
+  const handleNext = () => {
+    if (pagination.currentPage < pagination.pages) {
+      handlePage(pagination.currentPage + 1);
+    }
+  };
 
   return (
     <div className="overflow-x-auto rounded border border-gray-200 ">
@@ -117,21 +120,32 @@ export default function BookDetails({ books = [] }) {
       </table>
 
       <div className="flex mt-5 p-5 justify-center">
-        <button onClick={handlePrev} className="bg-yellow-500 rounded px-4 text-white text-center cursor-pointer mr-5">
+        <button
+          onClick={handlePrev}
+          disabled={pagination.currentPage == 1}
+          className="bg-yellow-600 cursor-pointer rounded px-4 text-white mr-5 disabled:opacity-40 disabled:cursor-not-allowed"
+          //   className="bg-yellow-500 rounded px-4 text-white text-center cursor-pointer mr-5"
+        >
           Prev
         </button>
         <ul className="flex gap-3">
           {totalblocks.map((item, index) => (
             <li
               key={index}
-              onClick={() => handlePage(index+1)}
-              className={`px-4 py-1 border ${pagination.currentPage===index+1 ? "bg-blue-700 text-white":"bg-blue-400 text-white hover:bg-blue-500"}  rounded cursor-pointer hover:bg-blue-400`}
+              onClick={() => handlePage(index + 1)}
+              className={`px-4 py-1 border ${pagination.currentPage === index + 1 ? "bg-blue-700 text-white" : "bg-blue-400 text-white hover:bg-blue-500"}  rounded cursor-pointer hover:bg-blue-400`}
             >
               {item}
             </li>
           ))}
         </ul>
-        <button className="bg-yellow-500 rounded px-4 text-white cursor-pointer ml-5">
+        <button
+          disabled={pagination.currentPage == pagination.pages}
+          onClick={handleNext}
+          className="bg-yellow-600 cursor-pointer rounded px-4 text-white ml-5 disabled:opacity-40 disabled:cursor-not-allowed"
+
+          //   className="bg-yellow-500 rounded px-4 text-white cursor-pointer ml-5"
+        >
           next
         </button>
       </div>

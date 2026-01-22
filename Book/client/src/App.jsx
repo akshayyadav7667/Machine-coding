@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import BookDetails from "./pages/BookDetails";
+import SingleBook from "./components/SingleBook";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/book/:id" element={<BookDetails />} />
+        <Route path="/book/:id" element={<SingleBook />} />
       </Routes>
     </BrowserRouter>
   );
